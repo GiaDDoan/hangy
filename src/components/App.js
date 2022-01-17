@@ -89,8 +89,7 @@ const App = () => {
         <Button onClickFunc={handleStart}>{status}</Button>
         <Button onClickFunc={handleReset}>Reset</Button>
       </Nav>
-      <Img src={main} alt="" />
-      {game.started && (
+      {game.started ? (
         <>
           <Container>
             <Deadman wrongGuesses={wrongGuesses} />
@@ -101,6 +100,8 @@ const App = () => {
           </Container>
           <Keyboard usedLetters={usedLetters} onLetterClick={handleGuess} />
         </>
+      ) : (
+        <Img src={main} alt="" />
       )}
     </Wrapper>
   );
