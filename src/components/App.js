@@ -10,6 +10,7 @@ import GameOverModal from "./GameOverModal";
 
 import { colors, contentWidth } from "./GlobalStyles";
 import words from "../data/words.json";
+import main from "../images/main.png";
 
 const initialGameState = { started: false, over: false, win: false };
 const App = () => {
@@ -88,6 +89,7 @@ const App = () => {
         <Button onClickFunc={handleStart}>{status}</Button>
         <Button onClickFunc={handleReset}>Reset</Button>
       </Nav>
+      <Img src={main} alt="" />
       {game.started && (
         <>
           <Container>
@@ -105,6 +107,9 @@ const App = () => {
 };
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: ${colors.blue};
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -139,6 +144,12 @@ const RightColumn = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+`;
+
+const Img = styled.img`
+  width: 600px;
+  max-width: 50%;
+  padding-top: 5rem;
 `;
 
 export default App;
